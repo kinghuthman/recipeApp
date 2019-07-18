@@ -38,3 +38,13 @@ Looking to clean up the title of a recipe. The limitRecipeTitle function uses an
 Once the statement is complete the newTitle is returned with ..., cleaning up the UI.
 
 ---
+
+---
+
+RENDER AJAX SPINNER
+
+---
+
+Created a renderLoader function in the base file. It consists of an html div that has spinner. Using the insertAdjacentHTML method, the spinner renders as a child element of a parent element that will be passed in to the renderLoader as an argument.
+
+Needed to create a method to clear the spinner after the results have rendered to the page. To delete an element, have to go up the parentElement, and then back down again and remove the child.
