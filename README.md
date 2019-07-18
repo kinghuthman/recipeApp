@@ -34,6 +34,7 @@ renderRecipe prints each individual recipe by rendering the dynamic data from th
 
 Created two functions to clear the search input field and also the results when searching for new recipes.
 
----
+Looking to clean up the title of a recipe. The limitRecipeTitle function uses an if statement to check if a title's character is over the limit. If so the title is put through a reduce function after being split into a subarray, once so, if the accumulator plus the length of the current word in the title is less than the limit, push the current word into the newTitle array. Then the accumulator is updated by adding the length of the current word to the current accumulator.
+Once the statement is complete the newTitle is returned with ..., cleaning up the UI.
 
 ---
