@@ -59,6 +59,9 @@ IMPLEMENTING SEARCH RESULTS PAGINATION
 
 First step is to change the render results function, as that function is called whenever we search for a recipe. The render results function not only recieves recipes but will now receive the page that is going to be displayed and the amount of results per page. A slice method is called on recipes to extract a certain amount of results. (start, end)
 
-The second step is to render these buttons actually on the interface.
+The second step is to render these buttons actually on the interface. To properly do so, the page one is on and how many pages there actually are, is passed into the renderButtons function. To find out how many pages there are, divide the number of results by the results that are displayed per page. Use an if/else statement to decide what buttons to render depending on what page one is on.
+
+The if/else statement would use duplicate code so created a function renderButtons that will only return the markup of the buttons that is needed. The markup contains dynamic data that will alter the buttons UI to match the results and what is expected from the user. Data is plugged into the button containing the number of the page where one wants to move whenever a button is clicked.
 
 The third step will be to attach some event handlers to the buttons that will change the page and render results.
+Data attributes will help figure out what pages to go to.

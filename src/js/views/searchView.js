@@ -47,13 +47,47 @@ const renderRecipe = recipe => {
     elements.searchResList.insertAdjacentHTML('beforeend', markup);
 };
 
+// receives page so it can print the number of the page to the interface
+// type is forward or previous button
+// all we want to do from this function is to return the markup 
+// html5 data attributes is used to store the page referenced as a property and accessed by an event listener 
+const createButton = (page, type) => `
+                    <button class="btn-inline results__btn--${type}" data-goto=${type === 'prev' ? page - 1 : page + 1}>
+                        <svg class="search__icon">
+                            <use href="img/icons.svg#icon-triangle-${type === 'prev' ? 'left' : 'right'}"></use>
+                        </svg>
+                        <span>Page ${type === 'prev' ? page - 1 : page + 1}</span>
+                    </button>`
+
+const renderButtons = (page, numResults, resPerPage) => {
+    const pages = Math.ceil(numResults / resPerPage);
+    let button;
+    if (page === 1 && pages > 1) {
+        // Button to go to next page
+        button = createButton(page, 'next')
+    } else if (page < pages) {
+        // Both buttons
+        button = `${createButton(page, 'prev')}
+        ${createButton(page, 'next')}`
+
+    } else if (page === pages && pages > 1) {
+        // Only button to go to prev page
+        button = createButton(page, 'prev')
+    }
+    elements.searchResPages.insertAdjacentHTML('afterbegin', button)
+};
+
 // loops through the array of results and calls the renderRecipe on each recipe
 // implemented a pagination system
-export const renderResults = (recipes, page = 1, resultsPerPage = 10) => {
+export const renderResults = (recipes, page = 2, resultsPerPage = 10) => {
+    // render results of current page
     const start = (page - 1) * resultsPerPage;
     const end = page * resultsPerPage;
 
     // need to loop through the array of recipes to print to the UI
     // slice will take the first 10 results
     recipes.slice(start, end).forEach(renderRecipe);
+
+    // render pagination
+    renderButtons(page, recipes.length, resultsPerPage)
 };
