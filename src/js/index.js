@@ -37,9 +37,8 @@ const controlSearch = async () => {
         await state.search.getResults();
 
         // 5) Render results on the UI
-        clearLoader()
+        clearLoader();
         searchView.renderResults(state.search.result);
-
     }
 }
 
@@ -47,4 +46,15 @@ elements.searchForm.addEventListener('submit', e => {
     // prevent the page from reloading
     e.preventDefault();
     controlSearch();
+})
+
+elements.searchResPages.addEventListener('click', e => {
+    // only interested in classes with the 'btn-inline'
+    const btn = e.target.closest('.btn-inline');
+    if (btn) {
+        // retrieves the property that was setup in the createButton function's dataset
+        const goToPage = parseInt(btn.dataset.goto, 10);
+        searchView.clearResults();
+        searchView.renderResults(state.search.result, goToPage);
+    }
 })

@@ -11,6 +11,7 @@ export const clearInput = () => {
 
 export const clearResults = () => {
     elements.searchResList.innerHTML = '';
+    elements.searchResPages.innerHTML = '';
 };
 
 // recieve a recieve a recipe and the maximum length of the title
@@ -64,22 +65,22 @@ const renderButtons = (page, numResults, resPerPage) => {
     let button;
     if (page === 1 && pages > 1) {
         // Button to go to next page
-        button = createButton(page, 'next')
+        button = createButton(page, 'next');
     } else if (page < pages) {
         // Both buttons
         button = `${createButton(page, 'prev')}
-        ${createButton(page, 'next')}`
+        ${createButton(page, 'next')}`;
 
     } else if (page === pages && pages > 1) {
         // Only button to go to prev page
-        button = createButton(page, 'prev')
+        button = createButton(page, 'prev');
     }
-    elements.searchResPages.insertAdjacentHTML('afterbegin', button)
+    elements.searchResPages.insertAdjacentHTML('afterbegin', button);
 };
 
 // loops through the array of results and calls the renderRecipe on each recipe
 // implemented a pagination system
-export const renderResults = (recipes, page = 2, resultsPerPage = 10) => {
+export const renderResults = (recipes, page = 1, resultsPerPage = 10) => {
     // render results of current page
     const start = (page - 1) * resultsPerPage;
     const end = page * resultsPerPage;
@@ -89,5 +90,5 @@ export const renderResults = (recipes, page = 2, resultsPerPage = 10) => {
     recipes.slice(start, end).forEach(renderRecipe);
 
     // render pagination
-    renderButtons(page, recipes.length, resultsPerPage)
+    renderButtons(page, recipes.length, resultsPerPage);
 };

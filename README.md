@@ -57,11 +57,22 @@ IMPLEMENTING SEARCH RESULTS PAGINATION
 
 ---
 
-First step is to change the render results function, as that function is called whenever we search for a recipe. The render results function not only recieves recipes but will now receive the page that is going to be displayed and the amount of results per page. A slice method is called on recipes to extract a certain amount of results. (start, end)
+FIRST STEP is to change the render results function, as that function is called whenever we search for a recipe. The render results function not only recieves recipes but will now receive the page that is going to be displayed and the amount of results per page. A slice method is called on recipes to extract a certain amount of results. (start, end)
 
-The second step is to render these buttons actually on the interface. To properly do so, the page one is on and how many pages there actually are, is passed into the renderButtons function. To find out how many pages there are, divide the number of results by the results that are displayed per page. Use an if/else statement to decide what buttons to render depending on what page one is on.
+SECOND STEP is to render these buttons actually on the interface. To properly do so, the page one is on and how many pages there actually are, is passed into the renderButtons function. To find out how many pages there are, divide the number of results by the results that are displayed per page. Use an if/else statement to decide what buttons to render depending on what page one is on.
 
 The if/else statement would use duplicate code so created a function renderButtons that will only return the markup of the buttons that is needed. The markup contains dynamic data that will alter the buttons UI to match the results and what is expected from the user. Data is plugged into the button containing the number of the page where one wants to move whenever a button is clicked.
 
-The third step will be to attach some event handlers to the buttons that will change the page and render results.
+THIRD STEP will be to attach some event handlers to the buttons that will change the page and render results.
 Data attributes will help figure out what pages to go to.
+
+Event delegation will be needed as there isn't anywhere to attach the event listeners if the pagination buttons are not yet there when the page is loaded.
+The concept is to attach the listener to an element that is already there, and then try to figure out where the event happened and then take action based on that.
+
+class resultspages is the element that is already avaiable at load, and that is where the event handler is placed. Use the closest method to select the entire button instead of the icon or text within the button itself in order to trigger the event lisener.
+
+All that is left is to use the renderResults method in the controller and call it but specifying the page this time. Previous functions are also used to clearout the results.
+
+---
+
+---
