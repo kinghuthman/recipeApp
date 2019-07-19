@@ -48,3 +48,17 @@ RENDER AJAX SPINNER
 Created a renderLoader function in the base file. It consists of an html div that has spinner. Using the insertAdjacentHTML method, the spinner renders as a child element of a parent element that will be passed in to the renderLoader as an argument.
 
 Needed to create a method to clear the spinner after the results have rendered to the page. To delete an element, have to go up the parentElement, and then back down again and remove the child.
+
+---
+
+---
+
+IMPLEMENTING SEARCH RESULTS PAGINATION
+
+---
+
+First step is to change the render results function, as that function is called whenever we search for a recipe. The render results function not only recieves recipes but will now receive the page that is going to be displayed and the amount of results per page. A slice method is called on recipes to extract a certain amount of results. (start, end)
+
+The second step is to render these buttons actually on the interface.
+
+The third step will be to attach some event handlers to the buttons that will change the page and render results.

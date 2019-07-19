@@ -47,8 +47,13 @@ const renderRecipe = recipe => {
     elements.searchResList.insertAdjacentHTML('beforeend', markup);
 };
 
-// loops through the array of results and calls the renderRecipe on each
-export const renderResults = recipes => {
-    // need to loop through the array of recipes to print
-    recipes.forEach(renderRecipe);
+// loops through the array of results and calls the renderRecipe on each recipe
+// implemented a pagination system
+export const renderResults = (recipes, page = 1, resultsPerPage = 10) => {
+    const start = (page - 1) * resultsPerPage;
+    const end = page * resultsPerPage;
+
+    // need to loop through the array of recipes to print to the UI
+    // slice will take the first 10 results
+    recipes.slice(start, end).forEach(renderRecipe);
 };
