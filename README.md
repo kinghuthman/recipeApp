@@ -88,3 +88,20 @@ Made the ajax call using the getRecipe method within the Recipe object/class. Th
 Adding the cooking time and amount of servings methods to the Recipe model as well.
 
 Assuming there needs to be 15 mins for every 3 ingredients. Calculate how many 15 minute periods there is. Number of ingredients divided by 3 and then rounded up to the highest integer = periods. The time is periods multiplied by 15.
+
+---
+
+---
+
+BUILDING THE RECIPE CONTROLLER
+
+---
+
+Inside the URL, the hash symbol and whatever comes after is called the the hash. Can make use of the fact that the hashses change whenever a different recipe is clicked by using the hash change event in javascript.
+
+Hash change event is fired off each time that the hash in the URL changes to something else.
+
+Added an event listener to the global object using hashchange. The controlRecipe function gets the id using the .hash property on windows.location which is the entire URL.
+
+Using an if statement within the recipe controller to render a recipe if there is an ID. When a new recipe object is created, want to store that in the state.
+As we are retrieving data, await is used and therefore the controlRecipe is now an async function.
