@@ -107,3 +107,32 @@ Using an if statement within the recipe controller to render a recipe if there i
 As we are retrieving data, await is used and therefore the controlRecipe is now an async function.
 
 Adding an event listener to the load event which will fire whenever the page is loaded. Currently nothing happens when an id is selected and the page is refreshed. The recipe goes away. Since controlRecipe is used on this load eventlistener and hashchange, going to add the same event listener, to the same event. Used forEach over an array containing the eventListeners.
+
+\*
+
+Read through a list of ingredients, and in each ingredient, separate the quanitity, the unit and the description of each ingredient.
+
+\*
+
+1.) Make all units the same across all the recipes
+
+- parseIngredients will create a new array based on the old ones
+
+  - create two arrays, one array will have the units as they appear in the ingredients and the second array will be written exactly as they should be.
+
+    - initialize the current element to a variable and pass it through a lowercase method
+    - loop through the array which holds the units as they appear, compare each unit to the element from the map method method, if they match, replace the element with the unit from the array holding the units with how they should be written by using the index of the current unit.
+    - Arrays must match for this to work!!
+
+      2.) Remove the parenthesis
+
+          - googled a regex pattern to match the parenthesis combination and replaced with empty strings
+
+      3.) Parse ingredients into count, unit and ingredient
+
+          - as the map method is being used, must return the Ingredient which is accessed by newIngredient
+          - Must prepare for all cases, number unit text, only the number and just the ingredient text and no unit, and sometimes no unit or number.
+          1. ) Check if there is a unit in the string, if so, where. Start by convert the ingredient into an array.
+          2. ) Find the index at where the unit is located. Used two methods, findIndex and includes, includes returns true or false if the element(unit) within the array is also in the array of units of how they should be. If it returns true, findIndex will then return the index of that element that matches and assign it to the unitIndex variable. unitIndex will be -1 if there is no match
+          3. ) IF else statement checking the cases mentioned earlier.
+          Practiced using eval on one of the cases that has a unit and its count has multiple numbers. eval will evaluate the string that was created as javascript code and execute it. For the other case that the ingredient contains a dash between the numbers, then replace the - with a + in order for the string to be evaluated.
