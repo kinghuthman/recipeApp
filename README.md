@@ -61,7 +61,7 @@ FIRST STEP is to change the render results function, as that function is called 
 
 SECOND STEP is to render these buttons actually on the interface. To properly do so, the page one is on and how many pages there actually are, is passed into the renderButtons function. To find out how many pages there are, divide the number of results by the results that are displayed per page. Use an if/else statement to decide what buttons to render depending on what page one is on.
 
-The if/else statement would use duplicate code so created a function renderButtons that will only return the markup of the buttons that is needed. The markup contains dynamic data that will alter the buttons UI to match the results and what is expected from the user. Data is plugged into the button containing the number of the page where one wants to move whenever a button is clicked.
+The if/else statement would use duplicate code so created a function createButton that will only return the markup of the buttons that is needed. The markup contains dynamic data that will alter the buttons UI to match the results and what is expected from the user. Data is plugged into the button containing the number of the page where one wants to move whenever a button is clicked.
 
 THIRD STEP will be to attach some event handlers to the buttons that will change the page and render results.
 Data attributes will help figure out what pages to go to.
@@ -69,10 +69,22 @@ Data attributes will help figure out what pages to go to.
 Event delegation will be needed as there isn't anywhere to attach the event listeners if the pagination buttons are not yet there when the page is loaded.
 The concept is to attach the listener to an element that is already there, and then try to figure out where the event happened and then take action based on that.
 
-class resultspages is the element that is already avaiable at load, and that is where the event handler is placed. Use the closest method to select the entire button instead of the icon or text within the button itself in order to trigger the event lisener.
+class resultspages is the element that is already avaiable at load, and that is where the event handler is placed. Use the closest method to select the entire button instead of the icon or text within the button itself in order to trigger the event listener.
 
 All that is left is to use the renderResults method in the controller and call it but specifying the page this time. Previous functions are also used to clearout the results.
 
 ---
 
 ---
+
+BUILDING THE RECIPE MODEL
+
+---
+
+Each recipe is identified by an ID, and based on that ID, it is possible to make ajax calls to get the rest of the data for the recipe.
+
+Made the ajax call using the getRecipe method within the Recipe object/class. The recipe class takes in an ID and then uses the getRecipe method to get that specific recipe. From there, all of the information about that recipe/id is returned as a promise. Then we can save whatever properties/information we need to the object, using the 'this' keyword.
+
+Adding the cooking time and amount of servings methods to the Recipe model as well.
+
+Assuming there needs to be 15 mins for every 3 ingredients. Calculate how many 15 minute periods there is. Number of ingredients divided by 3 and then rounded up to the highest integer = periods. The time is periods multiplied by 15.
