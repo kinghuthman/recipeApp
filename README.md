@@ -105,3 +105,5 @@ Added an event listener to the global object using hashchange. The controlRecipe
 
 Using an if statement within the recipe controller to render a recipe if there is an ID. When a new recipe object is created, want to store that in the state.
 As we are retrieving data, await is used and therefore the controlRecipe is now an async function.
+
+Adding an event listener to the load event which will fire whenever the page is loaded. Currently nothing happens when an id is selected and the page is refreshed. The recipe goes away. Since controlRecipe is used on this load eventlistener and hashchange, going to add the same event listener, to the same event. Used forEach over an array containing the eventListeners.

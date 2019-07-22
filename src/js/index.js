@@ -37,11 +37,18 @@ const controlSearch = async () => {
 
         // 4) Search for the recipe 
         /* getResults is an async function which returns a promise, therefore we have to await the promise */
-        await state.search.getResults();
+        try {
+            await state.search.getResults();
 
-        // 5) Render results on the UI
-        clearLoader();
-        searchView.renderResults(state.search.result);
+            // 5) Render results on the UI
+            clearLoader();
+            searchView.renderResults(state.search.result);
+
+        } catch (error) {
+            alert('Something went wrong with the search');
+            clearLoader();
+        }
+
     }
 }
 
@@ -74,16 +81,27 @@ const controlRecipe = async () => {
         // prepare UI for changes
 
         // create new recipe
-        state.recipe = new Recipe(id)
+        state.recipe = new Recipe(id);
         // get recipe data
-        await state.recipe.getRecipe();
-        // calculate servings and time
-        state.recipe.calcTime();
-        state.recipe.calcServings();
-        // render recipe
-        console.log(state.recipe)
+        try {
+            await state.recipe.getRecipe();
+            // calculate servings and time
+            state.recipe.calcTime();
+            state.recipe.calcServings();
+            // render recipe
+            console.log(state.recipe);
+
+        } catch (error) {
+            alert('Error processing recipe');
+        }
+
     }
 }
 
 // global event listener
-window.addEventListener('hashchange', controlRecipe);
+// window.addEventListener('hashchange', controlRecipe);
+// window.addEventListener('load', controlRecipe)
+
+// put the two eventListeners into an array.
+// loop over with forEach where each element is an event
+['hashchange', 'load'].forEach(event => window.addEventListener(event, controlRecipe));
