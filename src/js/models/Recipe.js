@@ -95,7 +95,7 @@ export default class Recipe {
         this.ingredients.forEach(ing => {
             ing.count *= (newServings / this.servings)
         })
-        // cannot update servings right away as it's needed in the equation above
+        // cannot update servings right away as it's needed in the equation above.
         this.servings = newServings;
     }
 }

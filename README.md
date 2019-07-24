@@ -195,6 +195,27 @@ Updating Recipe Servings
 
 updateServings takes a type which is inc or dec. Used a ternary expression to update newServings. ingredient count is updated by calling a forEach method on the ingredients and then updating the count with the newServings equation.
 
-Eventlistener added for the buttons. Element is already there at load time. This element has several other elements that cannot be misrepresented by this event listener and therefore .matches() will be used to properly select the correct class.
+Eventlistener added for the buttons. Element is already there at load time. This element has several other elements that cannot be misrepresented by this event listener and therefore .matches() will be used to properly select the correct class. If statement used to differentiate between the two types. Once model is updated then the view is with updateServingsIngredients(recipe)
+updateServingsIngredients(recipe) takes in recipe from the state and plugs in the new data.
+
 Able to update the data model with the new servings and ingredients.
 Updating the view as well.
+
+---
+
+---
+
+SHOPPING LIST MODEL
+
+---
+
+Want to represent the shopping list through an object, so used a class. Will be used as a blueprint to generate the list object in the controller.
+
+All items will be added to an array.
+
+Method addItem will take in the same input as an ingredient, since the list is a list of ingredients. They have the same structure.
+Each of the items need to have a unique id so they can be identified later when it is time to update them. Will use an external package called uniqueID.
+
+Blueprint will also have the ability to delete an item. method will receive the id of the item that needs to be deleted.
+
+updateCount will update the count and use a es6 method find. find() will loop through all the elements in the items and then select the one that has the ID equal to the ID that we passed into the function.

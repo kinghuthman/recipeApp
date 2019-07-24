@@ -128,6 +128,7 @@ export const updateServingsIngredients = recipe => {
     // update ingredients
     const countElements = Array.from(document.querySelectorAll('.recipe__count'));
     countElements.forEach((el, i) => {
+        // i matches ingredients in both arrays so they are updated as such
         el.textContent = formatCount(recipe.ingredients[i].count)
     })
 };
