@@ -184,3 +184,17 @@ highlightSelected in the searchView will highlight the recipe that has been sele
 Takes in an id, then in the function use document.querySelector as it is an element that isn't there when the page is loaded. Able to pretty much use css selectors inside of the template literal, now able to select any links based on attributes, what is needed is href.
 Hardcoded the class name where the new class will be attached. When adding a class to the classlist, no need for a . selector. Also changed the color of the active background for the results list as it was hard to notice.
 Had an issue where selecting one result woould highlight but so would every other result when clicked. Had to remove all classes before adding one in the results list.
+
+---
+
+---
+
+Updating Recipe Servings
+
+---
+
+updateServings takes a type which is inc or dec. Used a ternary expression to update newServings. ingredient count is updated by calling a forEach method on the ingredients and then updating the count with the newServings equation.
+
+Eventlistener added for the buttons. Element is already there at load time. This element has several other elements that cannot be misrepresented by this event listener and therefore .matches() will be used to properly select the correct class.
+Able to update the data model with the new servings and ingredients.
+Updating the view as well.
