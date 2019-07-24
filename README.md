@@ -108,6 +108,14 @@ As we are retrieving data, await is used and therefore the controlRecipe is now 
 
 Adding an event listener to the load event which will fire whenever the page is loaded. Currently nothing happens when an id is selected and the page is refreshed. The recipe goes away. Since controlRecipe is used on this load eventlistener and hashchange, going to add the same event listener, to the same event. Used forEach over an array containing the eventListeners.
 
+---
+
+---
+
+BUILDING THE RECIPE MODEL PT. 2
+
+---
+
 \*
 
 Read through a list of ingredients, and in each ingredient, separate the quanitity, the unit and the description of each ingredient.
@@ -136,3 +144,23 @@ Read through a list of ingredients, and in each ingredient, separate the quaniti
           2. ) Find the index at where the unit is located. Used two methods, findIndex and includes, includes returns true or false if the element(unit) within the array is also in the array of units of how they should be. If it returns true, findIndex will then return the index of that element that matches and assign it to the unitIndex variable. unitIndex will be -1 if there is no match
           3. ) IF else statement checking the cases mentioned earlier.
           Practiced using eval on one of the cases that has a unit and its count has multiple numbers. eval will evaluate the string that was created as javascript code and execute it. For the other case that the ingredient contains a dash between the numbers, then replace the - with a + in order for the string to be evaluated.
+
+---
+
+---
+
+BUILDING THE RECIPE VIEW
+
+---
+
+Created a recipeView file, with a variable that holds the markup with dynamic data
+
+Created a query selector for the recipe div container in the base file. This queryselector is used in the recipeview to insert the recipe markup after the beginning of the div.
+
+One thing about the markup is there's no knowledge about how many ingredients there is beforehand, so in the markup we run a map function on recipe.ingredients. Each element is passed through another function called createdIngredient which will create the markup for that ingredient with dynamic data as an array, and we avert this by joining them with a string.
+
+The renderRecipe function is good to test. Pass in to controlRecipe, clearLoader, then renderRecipe and pass in state.recipe. To prepare the UI for changes renderloader and make sure to pass in parent so loader knows where to display itself. clearLoader will handle the rest.
+
+Need to clear the recipe from the recipe view after selecting another recipe from the searchview.
+clearRecipe will apply empty strings to the element that holds the recipe class in the recipe view.
+Added more units of measurement to the array.
