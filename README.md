@@ -171,3 +171,16 @@ Added a library 'fractional' to handle fractions for the ingredients. Able to in
 
 formatCount will take in the count (reference parseIngredient count) and return a formatted string. This will be used in the createIngredient function. Once count is split by the decimal, int is the number and dec is the # after the decimal. Convert to strings with map and pass the strings into parseInt to convert into a number
 if else statement with a few conditions to make sure that the right fraction if needed is returned.
+
+---
+
+---
+
+SEARCH VIEW / RECIPE CONTROLLER
+
+---
+
+highlightSelected in the searchView will highlight the recipe that has been selected in the search results.
+Takes in an id, then in the function use document.querySelector as it is an element that isn't there when the page is loaded. Able to pretty much use css selectors inside of the template literal, now able to select any links based on attributes, what is needed is href.
+Hardcoded the class name where the new class will be attached. When adding a class to the classlist, no need for a . selector. Also changed the color of the active background for the results list as it was hard to notice.
+Had an issue where selecting one result woould highlight but so would every other result when clicked. Had to remove all classes before adding one in the results list.

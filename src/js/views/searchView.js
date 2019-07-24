@@ -4,15 +4,28 @@ import {
 
 export const getInput = () => elements.searchInput.value;
 
+// clears entered input in search bar
 export const clearInput = () => {
     elements.searchInput.value = '';
 };
 
-
+// clears search results
 export const clearResults = () => {
     elements.searchResList.innerHTML = '';
     elements.searchResPages.innerHTML = '';
 };
+
+// highlights recipe that has been selected in search results
+export const highlightSelected = id => {
+    // before adding a class to one element, must remove all first
+    const resultsArr = Array.from(document.querySelectorAll('.results__link'))
+    resultsArr.forEach(el => {
+        el.classList.remove('results__link--active');
+    })
+    // have to put the selector into quotes
+    document.querySelector(`a[href*="#${id}"]`).classList.add('results__link--active');
+
+}
 
 // recieve a recieve a recipe and the maximum length of the title
 const limitRecipeTitle = (title, limit = 17) => {
