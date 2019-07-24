@@ -163,4 +163,11 @@ The renderRecipe function is good to test. Pass in to controlRecipe, clearLoader
 
 Need to clear the recipe from the recipe view after selecting another recipe from the searchview.
 clearRecipe will apply empty strings to the element that holds the recipe class in the recipe view.
-Added more units of measurement to the array.
+Added more units of measurement to a new units array making use of the spread operator.
+
+---
+
+Added a library 'fractional' to handle fractions for the ingredients. Able to input integers and receive the numerator, denominator, also capable of many other functionalities.
+
+formatCount will take in the count (reference parseIngredient count) and return a formatted string. This will be used in the createIngredient function. Once count is split by the decimal, int is the number and dec is the # after the decimal. Convert to strings with map and pass the strings into parseInt to convert into a number
+if else statement with a few conditions to make sure that the right fraction if needed is returned.
