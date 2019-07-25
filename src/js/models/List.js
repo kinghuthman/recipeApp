@@ -1,7 +1,7 @@
 import uniqid from 'uniqid';
 
 export default class List {
-    // don't need anything to pass anythign when initializing a new list
+    // don't need anything to pass into constructor when initializing a new list
     constructor() {
         // will take all items
         this.items = []

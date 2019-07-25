@@ -219,3 +219,30 @@ Each of the items need to have a unique id so they can be identified later when 
 Blueprint will also have the ability to delete an item. method will receive the id of the item that needs to be deleted.
 
 updateCount will update the count and use a es6 method find. find() will loop through all the elements in the items and then select the one that has the ID equal to the ID that we passed into the function.
+
+---
+
+---
+
+SHOPPING LIST VIEW
+
+---
+
+Two methods, one to render the item and the other to delete the item from the UI.
+
+Create markup variable within render function.
+queryselect dom element that will render shopping list within base file.
+
+Specify a data attribute equal to the id so that later elements can be selected based on the data attribute/id.
+
+item.count will be applied for step as that is the change that happens when the arrow buttons in the number field is clicked.
+
+Added a class so that the input can be selected and that value can be read for the newCount
+
+Insert the markup using insertAdjacentHTML after each child within the parent so used beforeend
+
+DELETE METHOD
+
+The delete method, able to select the element by id as the id was attached within the markup thanks to the data attribute.
+
+In order to remove that element with that id. Must go up to the parentElement then back down to the child removeChild(item)
