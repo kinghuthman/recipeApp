@@ -277,4 +277,11 @@ Added an else if to match the shopping count value to update the count in the st
 
 ---
 
-LIST MODEL
+LIKE MODEL
+
+---
+
+this.likes will be an empty array
+Added an addlike method that takes in sevaral properties.
+Added a deleteLike method
+Added an isLiked method that tests if the recipe has been liked by checking the array of recipes with the id of the recipe currently being viewed. This is done similar to the delete method, but will check if the index is different from -1. -1 means there array does not contain that id/recipe.
