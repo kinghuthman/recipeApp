@@ -4,7 +4,7 @@ export default class List {
     // don't need anything to pass into constructor when initializing a new list
     constructor() {
         // will take all items
-        this.items = []
+        this.items = [];
     }
     addItem(count, unit, ingredient) {
         const item = {

@@ -246,3 +246,35 @@ DELETE METHOD
 The delete method, able to select the element by id as the id was attached within the markup thanks to the data attribute.
 
 In order to remove that element with that id. Must go up to the parentElement then back down to the child removeChild(item)
+
+---
+
+---
+
+SHOPPING LIST CONTROLLER
+
+---
+
+Added the add keyword to the recipe btn class, as this will be the class for the button that adds all the ingredients.
+Need the event delegation, as all of the elements that need to be selected are not done by the time the page loads.
+
+Added to the if else statement that handles recipe buttons, used the \* css selector for all of the child elements of an element for a button as it may have other elements inside of it when clicked and might not trigger the event.listener andneeds to be catched on the button itself. Will call the controlList function once the event is triggered.
+
+For the controlList, the list controller.. The function will have an if else statement to produce the list as warranted.
+For the step to add each ingredient to the list, step.recipe.ingredients is an array, going to loop over the array and then add a new element to the list. addItem method returns an item that will be stored in an item variable. Able to input this item into the renderItem method created in the listView.
+
+Event delegation for the buttons in the shopping list in order to delete and update the count.
+First thing is to try and read the ID of the element that has been clicked. Do this by using the method 'closest' on an event's target, in order to find the closest element with the shoppingitem class on it.
+Then able to use dataset to grab the id, looking for the name that was given to attribute using dot notation.
+
+To delete an item, using matches method to find if the target is similar to shoppingdelete or any of its child elements.
+Going to delete it from state, using the deleteItem method on the list class and will also pass in the id that was obtained through the dataset.
+Using an if statement to handle the delete button,
+
+Added an else if to match the shopping count value to update the count in the state. It will read the data from the interface and update the count.
+
+---
+
+---
+
+LIST MODEL
