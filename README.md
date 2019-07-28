@@ -320,3 +320,16 @@ renderLike is markup that renders dynamic data with html
 ---
 
 ---
+
+PERSISTENT DATA
+
+---
+
+Local storage api is very simple, setItem, getItem, removeItem and the length property.
+
+Every time the likes are changed, persist the data/store in local storage.
+Created a method to retrieve the likes from the local storage
+Converted the string back into an array/object with json.parse
+Used an if statement stating if there is something in the local storage regarding like, the state will use that information.
+
+Added a new event handler for when the page loads in order to retrieve data from local storage.
