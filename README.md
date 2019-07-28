@@ -299,3 +299,24 @@ Added event listener for the likes button
 controlLike is our controller for the likes. Using an if else statement to manage like a button and unliking a button.
 If a user has not liked anything then a likes object will be created prior to the toggling of the likes button.
 In order to add a like to the state must call addLike function and pass in several arguments that are retrieved from the state.
+
+---
+
+---
+
+LIKES VIEW
+
+---
+
+Created a function to toggle the like button
+Used setAttribute to change element class of button when toggled.
+Currently have an error where isLiked is not defined as cannot read likes whenever the page is reloaded since there is no persitent data.
+Made a new likes object prior to calling the likes controller in order to test the isLiked function
+
+toggleLikesMenu takes in getNumofLikes to see if it should display the likes narkup created in the likesView. This is functional with the working of a ternary expression.
+
+renderLike is markup that renders dynamic data with html
+
+---
+
+---
