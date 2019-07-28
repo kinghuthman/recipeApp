@@ -285,3 +285,17 @@ this.likes will be an empty array
 Added an addlike method that takes in sevaral properties.
 Added a deleteLike method
 Added an isLiked method that tests if the recipe has been liked by checking the array of recipes with the id of the recipe currently being viewed. This is done similar to the delete method, but will check if the index is different from -1. -1 means there array does not contain that id/recipe.
+
+---
+
+---
+
+LIKES CONTROLLER
+
+---
+
+Added event listener for the likes button
+
+controlLike is our controller for the likes. Using an if else statement to manage like a button and unliking a button.
+If a user has not liked anything then a likes object will be created prior to the toggling of the likes button.
+In order to add a like to the state must call addLike function and pass in several arguments that are retrieved from the state.
