@@ -333,3 +333,13 @@ Converted the string back into an array/object with json.parse
 Used an if statement stating if there is something in the local storage regarding like, the state will use that information.
 
 Added a new event handler for when the page loads in order to retrieve data from local storage.
+
+---
+
+---
+
+CLEAN UP
+
+---
+
+Fixed bugs, stopped leaking state into global object.

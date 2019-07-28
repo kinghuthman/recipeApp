@@ -20,7 +20,7 @@ import {
  * - Liked recipes
  */
 const state = {}
-window.state = state
+
 /**
  * SEARCH CONTROLLER
  */
@@ -78,7 +78,6 @@ elements.searchResPages.addEventListener('click', e => {
 const controlRecipe = async () => {
     // get the hash/id from the URL, replace  removes the #
     const id = window.location.hash.replace('#', '');
-    console.log(id);
 
     if (id) {
         // prepare UI for changes
@@ -146,7 +145,6 @@ elements.shopping.addEventListener('click', e => {
         // Handle the count update
     } else if (e.target.matches('.shopping__count-value')) {
         const val = parseFloat(e.target.value, 10);
-        console.log(val)
         state.list.updateCount(id, val);
     }
 });
